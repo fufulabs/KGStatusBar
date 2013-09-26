@@ -93,6 +93,10 @@
         
         [overlayWindow removeFromSuperview];
         overlayWindow = nil;
+
+        UIViewController *rootViewController = UIApplication.sharedApplication.delegate.window.rootViewController;
+        if ([rootViewController respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)])
+            [rootViewController performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
     }];
 }
 
